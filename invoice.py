@@ -5,34 +5,38 @@ from trytond.model import Workflow, ModelView, ModelSQL
 from trytond.pyson import Eval
 from trytond.pool import Pool
 
-class Invoice(Workflow, ModelSQL, ModelView):
-    _name = 'account.invoice'
+__all__ = ['Invoice']
 
-    def __init__(self):
-        super(Invoice, self).__init__()
+class Invoice(Workflow, ModelSQL, ModelView):
+    __name__ = 'account.invoice'
+
+    @classmethod
+    def __setup__(cls):
+        super(Invoice, cls).__setup__()
         # TODO: Ensure we're updating correctly transitions and buttons
         # TODO: Do we have to add copy()?
-        self._transitions |= set((
+        cls._transitions |= set((
                 ('open', 'cancel'),
                 ('paid', 'cancel'),
                 ))
-        self._buttons.update({
+        cls._buttons.update({
                 'cancel': {
                     'invisible': Eval('state') == 'cancel',
                     },
                 })
 
-    def cancel(self, ids):
+    @classmethod
+    @ModelView.button
+    @Workflow.transition('cancel')
+    def cancel(self, invoices):
         pool = Pool()
-        move_obj = pool.get('account.move')
+        Move = pool.get('account.move')
 
-        super(Invoice, self).cancel(ids)
+        super(Invoice, self).cancel(invoices)
         todelete = []
-        for invoice in self.browse(ids):
+        for invoice in invoices:
             if invoice.move:
-                todelete.append(invoice.move.id)
+                todelete.append(invoice.move)
         if todelete:
-            move_obj.draft(todelete)
-            move_obj.delete(todelete)
-
-Invoice()
+            Move.draft(todelete)
+            Move.delete(todelete)
