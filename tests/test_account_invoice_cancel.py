@@ -15,7 +15,6 @@ import trytond.tests.test_tryton
 from trytond.tests.test_tryton import test_view, test_depends
 from trytond.tests.test_tryton import POOL, DB_NAME, USER, CONTEXT
 from trytond.transaction import Transaction
-from trytond.wizard import Session
 from trytond.exceptions import UserError
 
 
