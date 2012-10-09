@@ -3,11 +3,12 @@
 #the full copyright notices and license terms.
 from trytond.model import Workflow, ModelView, ModelSQL
 from trytond.pyson import Eval
-from trytond.pool import Pool
+from trytond.pool import Pool, PoolMeta
 
 __all__ = ['Invoice']
+__metaclass__ = PoolMeta
 
-class Invoice(Workflow, ModelSQL, ModelView):
+class Invoice:
     __name__ = 'account.invoice'
 
     @classmethod
