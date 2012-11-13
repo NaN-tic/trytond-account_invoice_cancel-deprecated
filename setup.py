@@ -33,14 +33,14 @@ setup(name='trytonzz_account_invoice_cancel',
     author='NaN·tic',
     author_email='info@NaN-tic.com',
     url='http://www.nan-tic.com',
-    download_url='https://bitbucket.org/zikzakmedia/trytonzz-account_invoice_cancel',
-    package_dir={'trytonzz.modules.account_invoice_cancel': '.'},
+    download_url='https://bitbucket.org/zikzakmedia/trytond-account_invoice_cancel',
+    package_dir={'trytond.modules.account_invoice_cancel': '.'},
     packages=[
-        'trytonzz.modules.account_invoice_cancel',
-        'trytonzz.modules.account_invoice_cancel.tests',
+        'trytond.modules.account_invoice_cancel',
+        'trytond.modules.account_invoice_cancel.tests',
     ],
     package_data={
-        'trytonzz.modules.account_invoice_cancel': info.get('xml', []) \
+        'trytond.modules.account_invoice_cancel': info.get('xml', []) \
             + ['tryton.cfg', 'locale/*.po'],
     },
     classifiers=[
@@ -69,9 +69,9 @@ setup(name='trytonzz_account_invoice_cancel',
     install_requires=requires,
     zip_safe=False,
     entry_points="""
-    [trytonzz.modules]
-    account_invoice_cancel = trytonzz.modules.account_invoice_cancel
+    [trytond.modules]
+    account_invoice_cancel = trytond.modules.account_invoice_cancel
     """,
     test_suite='tests',
-    test_loader='trytonzz.test_loader:Loader',
+    test_loader='trytond.test_loader:Loader',
 )
