@@ -24,8 +24,8 @@ compra, se deben instalar también los módulos `Cancelación facturas compras`_
 .. _Cancelación facturas compras: ../purchase_invoice_cancel/index.html
 .. _Cancelación facturas ventas: ../sale_invoice_cancel/index.html
 
-Módulos que dependen
-====================
+Módulos de los que depende
+==========================
 
 Instalados
 ----------
