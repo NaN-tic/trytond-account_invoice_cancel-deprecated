@@ -33,11 +33,11 @@ Instalados
 .. toctree::
    :maxdepth: 1
 
-   /account/index
+   /account_invoice/index
 
 Dependencias
 ------------
 
-* Contabilidad_
+* `Facturación`_
 
-.. _Contabilidad: ../account/index.html
+.. _Facturación: ../account_invoice/index.html
