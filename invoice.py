@@ -14,8 +14,6 @@ class Invoice:
     @classmethod
     def __setup__(cls):
         super(Invoice, cls).__setup__()
-        # TODO: Ensure we're updating correctly transitions and buttons
-        # TODO: Do we have to add copy()?
         cls._transitions |= set((
                 ('open', 'cancel'),
                 ('paid', 'cancel'),
